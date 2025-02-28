@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Health Metrics</h4>
+                <canvas id="healthChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title">Update Health Data</h4>
+                <form id="healthDataForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Age</label>
+                            <input type="number" class="form-control" name="age" required min="20" max="100">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Blood Pressure</label>
+                            <input type="text" class="form-control" name="blood_pressure" placeholder="120/80" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Heart Rate</label>
+                            <input type="number" class="form-control" name="heart_rate" required min="40" max="200">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Cholesterol</label>
+                            <input type="number" class="form-control" name="cholesterol" required min="100" max="600">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Temperature (°C)</label>
+                            <input type="number" class="form-control" name="temperature" step="0.1">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Weight (kg)</label>
+                            <input type="number" class="form-control" name="weight" step="0.1">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Data</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">Risk Analysis</h4>
+                <div id="riskScore" class="text-center">
+                    <div class="display-4">--%</div>
+                    <p class="text-muted">Heart Disease Risk</p>
+                    <div class="risk-level mt-2"></div>
+                    <p class="risk-advice text-muted small"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Medical Assistant</h4>
+                <div id="chatMessages" class="chat-container mb-3"></div>
+                <form id="chatForm" class="d-flex">
+                    <input type="text" class="form-control" id="chatInput" placeholder="Ask a question...">
+                    <button type="submit" class="btn btn-primary ms-2">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
