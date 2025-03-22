@@ -7,7 +7,7 @@ from healthutils import get_health_data_summary, get_diabetes_data_summary
 load_dotenv()
 
 # Configure the Gemini API
-genai.configure(api_key='AIzaSyCaAZELnmLX1mYflOJ8Ts81dK0_bXwZ_TM',
+genai.configure(api_key=os.getAPI()#UPDATE THIS,
                 transport="rest",
                 client_options={"api_endpoint": "generativelanguage.googleapis.com"})
 
