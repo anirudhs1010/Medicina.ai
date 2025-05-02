@@ -6,7 +6,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import logging
 from sqlalchemy.orm import DeclarativeBase
-
+from dotenv import load_dotenv
+load_dotenv()
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
